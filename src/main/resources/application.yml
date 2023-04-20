@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5430/matcha
+    username: lavernoAdmin
+    password: Hhr13Ptr
+  flyway:
+    enabled: true

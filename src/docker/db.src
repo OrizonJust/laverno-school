@@ -1,0 +1,1 @@
+docker run --rm --name pg-docker -e POSTGRES_PASSWORD=Hhr13Ptr -e POSTGRES_USER=lavernoAdmin -e POSTGRES_DB=matcha -p 5430:5432 postgres:13
