@@ -38,8 +38,7 @@ public class RoleController {
     public BasicResponse<Set<Role>> getRolesByUserId(@PathVariable(name = "id") final String id) {
         final var response = new BasicResponse<Set<Role>>();
         try {
-            final var uuid = UUID.fromString(id);
-            response.setData(roleService.getRolesByUserId(uuid));
+            response.setData(roleService.getRolesByUserId(UUID.fromString(id)));
         } catch (IllegalArgumentException ex) {
             response.setFault("Получен некорректный [id=%s]!", id);
         } catch (DataNotFoundException ex) {

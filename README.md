@@ -1,5 +1,5 @@
-User(UUID: id, varchar: username, varchar: password, varchar: email, varchar: phone, varchar: avatar, boolean disabled) - Таблица пользователя
-Role(UUID: id, varchar: name) - Таблица ролей (USER, MODERATOR, SPEAKER, WATCHER)
++User(UUID: id, varchar: username, varchar: password, varchar: email, varchar: phone, varchar: avatar, boolean disabled) - Таблица пользователя
++Role(UUID: id, varchar: name) - Таблица ролей (USER, MODERATOR, SPEAKER, WATCHER)
 Discipline(UUID: id, varchar: name) - Таблица дисциплин (Java SE начальный курс, Python начальный курс, ...)
 Course(UUID: id, varchar: name, date: startDate, date: endDate, UUID: disciplineId) - Таблица курса (Java SE начальный курс будет проходить с ...г. по ...г.)
 Student(UUID: userId, UUID: courseId, date: courseStartDate) -  Таблица студента (Студентом может стать любой пользователь) (в таблице составной ключ userId+courseId)

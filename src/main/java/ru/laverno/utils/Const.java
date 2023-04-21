@@ -7,4 +7,14 @@ public class Const {
     public static final String PHONE_PATTERN = "(\\+7|7|8)?[\\s\\-]?\\(?9\\d{2}\\)?[\\s\\-]?\\d{3}[\\s\\-]?\\d{2}[\\s\\-]?\\d{2}";
 
     public static final String USER_NOT_FOUND_EXCEPTION = "Не удалось найти пользователя с идентификатором [id=%s]!";
+
+    public static final String DISCIPLINE_NOT_FOUND_EXCEPTION = "Не удалось найти дисциплину с идентификатором [id=%s]!";
+
+    public static final String NOT_FOUND_ID_EXCEPTION = "Не удалось найти %s с идентификатором [id=%s]!";
+
+    public static final String NOT_FOUND_NAME_EXCEPTION = "Не удалось найти %s с именем [name=%s]!";
+
+    public static final String NOT_FOUND_ANY_EXCEPTION = "Не удалось найти %s!";
+
+    public static final String DISCIPLINE = "дисциплину";
 }

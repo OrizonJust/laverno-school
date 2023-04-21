@@ -126,16 +126,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean deleteUser(UUID id) {
-        if (id != null) {
-            final var user = userRepository.findById(id).orElseThrow(() ->
-                    new DataNotFoundException(String.format(Const.USER_NOT_FOUND_EXCEPTION, id)
-                    ));
-
-            userRepository.save(UserMapper.userToDeleteUser(user));
-            return true;
-        } else {
+        if (id == null) {
             throw new ParamValidationException("Идентификатор пользователя [id=null] равен NULL!");
         }
+
+        final var user = userRepository.findById(id).orElseThrow(() ->
+                new DataNotFoundException(String.format(Const.USER_NOT_FOUND_EXCEPTION, id)
+                ));
+
+        userRepository.save(UserMapper.userToDeleteUser(user));
+        return true;
     }
 
     @Override
@@ -158,6 +158,6 @@ public class UserServiceImpl implements UserService {
                 -> new DataNotFoundException(String.format(Const.USER_NOT_FOUND_EXCEPTION, roleRequest.userId())));
         final var roles = roleService.getRolesByUserId(roleRequest.userId());
 
-        return UserMapper.userToUserResponse(user,roles);
+        return UserMapper.userToUserResponse(user, roles);
     }
 }
