@@ -11,6 +11,7 @@ import ru.laverno.repository.DisciplineRepository;
 import ru.laverno.utils.Const;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.UUID;
 
@@ -59,7 +60,7 @@ public class DisciplineServiceImpl implements DisciplineService {
             getDisciplineByName(discipline.name());
             throw new DataAlreadyExistsException(String.format("Дисциплина с именем [name=%s] уже существует!", discipline.name()));
         } catch (DataNotFoundException ex) {
-            return disciplineRepository.save(new Discipline(discipline.name()));
+            return disciplineRepository.save(new Discipline(discipline.name(), new HashSet<>()));
         }
     }
 

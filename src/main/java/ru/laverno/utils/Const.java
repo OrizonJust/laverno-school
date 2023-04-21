@@ -17,4 +17,6 @@ public class Const {
     public static final String NOT_FOUND_ANY_EXCEPTION = "Не удалось найти %s!";
 
     public static final String DISCIPLINE = "дисциплину";
+
+    public static final String COURSE = "курс";
 }

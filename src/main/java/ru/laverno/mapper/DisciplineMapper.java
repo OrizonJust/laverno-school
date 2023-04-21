@@ -9,6 +9,7 @@ public class DisciplineMapper {
 
     public static Discipline disciplineRequestToEditedDiscipline(Discipline discipline, DisciplineRequest disciplineRequest) {
         return new Discipline(discipline.getId(),
-                disciplineRequest.name() != null ? disciplineRequest.name() : discipline.getName());
+                disciplineRequest.name() != null ? disciplineRequest.name() : discipline.getName(),
+                discipline.getCourse());
     }
 }

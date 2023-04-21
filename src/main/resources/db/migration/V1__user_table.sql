@@ -2,7 +2,7 @@ create extension if not exists "uuid-ossp";
 
 create schema if not exists school;
 
-create table school.sc_t_user
+create table if not exists school.sc_t_user
 (
     usr_id       uuid primary key default public.uuid_generate_v4(),
     usr_name     varchar(70) not null,

@@ -1,10 +1,10 @@
-create table school.sc_t_role
+create table if not exists school.sc_t_role
 (
     r_id   uuid primary key default public.uuid_generate_v4(),
     r_name varchar(20) not null
 );
 
-create table school.sc_t_user_x_role
+create table if not exists school.sc_t_user_x_role
 (
     usr_id uuid not null,
     r_id uuid not null,
