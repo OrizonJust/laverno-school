@@ -100,7 +100,14 @@ public class UserServiceImpl implements UserService {
             throw new DataAlreadyExistsException(String.format("Пользователь с номер телефона [phone=%s] уже существует в базе!", user.phone()));
         }
 
-        final var newUser = new User(user.username(), user.password(), user.email(), Utils.convertPhoneIntoFormat(user.phone()), user.avatar(), false, Set.of(new RoleRef(roleService.getRoleByName("USER").getId())));
+        final var newUser = new User(
+                user.username(),
+                user.password(),
+                user.email(),
+                user.phone() == null ? null : Utils.convertPhoneIntoFormat(user.phone()),
+                user.avatar(),
+                false,
+                Set.of(new RoleRef(roleService.getRoleByName("USER").getId())));
 
         return UserMapper.userToUserResponse(userRepository.save(newUser), Set.of(roleService.getRoleByName("USER")));
     }
