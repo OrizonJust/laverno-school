@@ -8,7 +8,7 @@ public class StudentMapper {
 
     private StudentMapper() {}
 
-    public static StudentResponse studentToStudentResponse(UserResponse user, CourseResponse course) {
-        return new StudentResponse(user.id(), user.username(), user.email(), course.id(), course.courseName(), course.disciplineName(), course.startTime());
+    public static StudentResponse studentToStudentResponse(UserResponse user, CourseResponse course, boolean disable) {
+        return new StudentResponse(user.id(), user.username(), user.email(), course.id(), course.courseName(), course.disciplineName(), course.startTime(), disable);
     }
 }

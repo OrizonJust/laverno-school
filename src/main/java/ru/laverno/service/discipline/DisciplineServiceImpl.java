@@ -60,7 +60,7 @@ public class DisciplineServiceImpl implements DisciplineService {
             getDisciplineByName(discipline.name());
             throw new DataAlreadyExistsException(String.format("Дисциплина с именем [name=%s] уже существует!", discipline.name()));
         } catch (DataNotFoundException ex) {
-            return disciplineRepository.save(new Discipline(discipline.name(), new HashSet<>()));
+            return disciplineRepository.save(new Discipline(discipline.name(), false, new HashSet<>(), new HashSet<>()));
         }
     }
 

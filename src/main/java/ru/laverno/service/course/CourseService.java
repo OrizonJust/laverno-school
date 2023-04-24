@@ -8,6 +8,8 @@ import java.util.UUID;
 
 public interface CourseService {
 
+    //TODO: Создать поиск курсов по айди дисциплины
+
     CourseResponse getCourseById(UUID id);
 
     CourseResponse getCourseByName(String name);

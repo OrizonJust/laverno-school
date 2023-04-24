@@ -1,7 +1,6 @@
 package ru.laverno.controller;
 
 import org.springframework.web.bind.annotation.*;
-import ru.laverno.entitiy.Student;
 import ru.laverno.model.BasicResponse;
 import ru.laverno.model.student.StudentRequest;
 import ru.laverno.model.student.StudentResponse;
@@ -21,8 +20,8 @@ public class StudentController {
     }
 
     @GetMapping("/")
-    public BasicResponse<List<Student>> getAllStudents() {
-        final var response = new BasicResponse<List<Student>>();
+    public BasicResponse<List<StudentResponse>> getAllStudents() {
+        final var response = new BasicResponse<List<StudentResponse>>();
         response.setData(studentService.getAllStudents());
         return response;
     }
@@ -46,6 +45,12 @@ public class StudentController {
         final var response = new BasicResponse<StudentResponse>();
         response.setData(studentService.addNewStudent(student));
         return  response;
+    }
 
+    @DeleteMapping("/")
+    public BasicResponse<StudentResponse> editStudent(@RequestBody StudentRequest student) {
+        final var response = new BasicResponse<StudentResponse>();
+        response.setData(studentService.deleteStudent(student));
+        return response;
     }
 }

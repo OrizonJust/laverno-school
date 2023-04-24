@@ -19,18 +19,26 @@ public class Discipline {
     @Column(value = "d_name")
     private final String name;
 
+    @Column(value = "d_disable")
+    private final Boolean disable;
+
     @MappedCollection(idColumn = "d_id")
     private final Set<Course> course;
 
-    public Discipline(String name, Set<Course> course) {
-        this(null, name, course);
+    @MappedCollection(idColumn = "d_id")
+    private final Set<Practice> practice;
+
+    public Discipline(String name, Boolean disable, Set<Course> course, Set<Practice> practice) {
+        this(null, name, disable, course, practice);
     }
 
     @PersistenceCreator
-    public Discipline(UUID id, String name, Set<Course> course) {
+    public Discipline(UUID id, String name, Boolean disable, Set<Course> course, Set<Practice> practice) {
         this.id = id;
         this.name = name;
+        this.disable = disable;
         this.course = course;
+        this.practice = practice;
     }
 
     public UUID getId() {
@@ -41,7 +49,15 @@ public class Discipline {
         return name;
     }
 
+    public Boolean getDisable() {
+        return disable;
+    }
+
     public Set<Course> getCourse() {
         return course;
+    }
+
+    public Set<Practice> getPractice() {
+        return practice;
     }
 }

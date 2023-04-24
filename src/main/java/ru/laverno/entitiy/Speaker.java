@@ -9,27 +9,23 @@ import ru.laverno.model.EmbeddedUserCourseId;
 
 import java.time.LocalDate;
 
-@Table(schema = "school", name = "sc_t_student")
-public class Student {
+@Table(schema = "school", name = "sc_t_speaker")
+public class Speaker {
 
     @Id
     @Embedded.Empty
     private final EmbeddedUserCourseId id;
 
-    @Column(value = "st_start_date")
+    @Column(value = "sp_start_date")
     private final LocalDate startDate;
 
-    @Column(value = "st_done")
-    private final Boolean done;
-
-    @Column(value = "st_disable")
+    @Column(value = "sp_disable")
     private final Boolean disable;
 
     @PersistenceCreator
-    public Student(EmbeddedUserCourseId id, LocalDate startDate, Boolean done, Boolean disable) {
+    public Speaker(EmbeddedUserCourseId id, LocalDate startDate, Boolean disable) {
         this.id = id;
         this.startDate = startDate;
-        this.done = done;
         this.disable = disable;
     }
 
@@ -39,10 +35,6 @@ public class Student {
 
     public LocalDate getStartDate() {
         return startDate;
-    }
-
-    public Boolean getDone() {
-        return done;
     }
 
     public Boolean getDisable() {
